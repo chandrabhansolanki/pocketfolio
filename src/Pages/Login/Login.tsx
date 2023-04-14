@@ -29,7 +29,8 @@ const Login = ({navigation}) => {
   };
 
   const loginHandler = () => {
-    navigation.navigate(routes.LOGIN);
+    // navigation.navigate(routes.HOME);
+    navigation.navigate('dashboard');
   };
 
   const forgetPasswordHandler = () => {

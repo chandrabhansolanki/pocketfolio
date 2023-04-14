@@ -6,30 +6,34 @@ import SignUp from '../Pages/SignUp/SignUp';
 import SplashScreen from '../Pages/SplashScreen/SplashScreen';
 import ForgetPassword from '../Pages/ForgetPassword/ForgetPassword';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import ProfileSideBar from '../Pages/Profile/ProfileSideBar';
+
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
   const Drawer = createDrawerNavigator();
-
-
   const LeftDrawer = createDrawerNavigator();
 
-const LeftDrawerScreen = () => {
-  return (
-    <LeftDrawer.Navigator screenOptions={{ drawerPosition: 'left' }}>
-      <LeftDrawer.Screen name="Hguvuvugjhome" component={SplashScreen} />
-      <LeftDrawer.Screen name="hgf" component={Login} />
-
-    </LeftDrawer.Navigator>
-  );
-};
+  const LeftDrawerScreen = () => {
+    return (
+      <LeftDrawer.Navigator
+        screenOptions={{drawerPosition: 'left'}}
+        id="LeftDrawer">
+        <LeftDrawer.Screen
+          name="hgf"
+          component={ProfileSideBar}
+          options={{headerShown: false}}
+        />
+      </LeftDrawer.Navigator>
+    );
+  };
 
   const DrawerStack = () => (
     <Drawer.Navigator
       id="RightDrawer"
       screenOptions={{
         drawerPosition: 'right',
-        headerShown: false,
+        // headerShown: false,
       }}
       drawerContent={props => <SignUp {...props} />}>
       <Drawer.Screen

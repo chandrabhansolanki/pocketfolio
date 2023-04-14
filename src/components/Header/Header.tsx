@@ -6,20 +6,26 @@ import {
   bellIcon,
   chat,
 } from '../../Images/Images';
-import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+
 
 const Header = ({navigation}) => {
+  // const navigation = useNavigation();
+  const leftSideBarHandler = () => {
+    navigation.getParent('LeftDrawer').openDrawer();
+  };
+  const rightSideBarHandler = () => {
+    navigation.getParent('RightDrawer').openDrawer();
+  };
+
   return (
     <View style={{height: 100, backgroundColor: 'pink'}}>
       <View style={styles.topNav}>
-        <TouchableOpacity
-          onPress={() => navigation.getParent('LeftDrawer').openDrawer()}>
-          <View style={styles.leftsidecontainer}>
+        <View style={styles.leftsidecontainer}>
+          <TouchableOpacity onPress={leftSideBarHandler}>
             <Image source={xpoLogo} style={styles.xpoIcon} />
-            <Text style={styles.profileName}>Hi, Xeno</Text>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <Text style={styles.profileName}>Hi, Xeno</Text>
+        </View>
         <View style={styles.menuIconContainer}>
           <TouchableOpacity>
             <View style={styles.menuIcon}>
@@ -36,7 +42,7 @@ const Header = ({navigation}) => {
               <Image source={graphIcon} style={styles.menuIconImg} />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={rightSideBarHandler}>
             <View style={styles.menuIcon}>
               <Image source={HamburgerIcon} style={styles.menuIconImg} />
             </View>

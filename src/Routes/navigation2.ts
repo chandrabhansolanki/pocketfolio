@@ -91,19 +91,7 @@ const Navigator = () => {
         name={routes.NAVIGATION_TAB_STACK}
         component={DrawerStack}
       />
-      {/* <Stack.Screen
-        name={routes.DERIVATIVE_INDEX}
-        component={DerivativeIndex}
-      />
-
-      <Stack.Screen name={routes.DEPOSIT_FUNDS} component={DepositFunds} />
-      <Stack.Screen name={routes.WITHDRAW_SCREEN} component={Withdraw} />
-      <Stack.Screen
-        name={routes.INTERNAL_TRANSACTION}
-        component={InternalTransaction}
-      />
-      <Stack.Screen name={routes.CHANGE_PASSWORD} component={ChangePassword} />
-      <Stack.Screen name={routes.NEWS_UPDATE} component={News} /> */}
+    
     </Stack.Navigator>
   );
 
@@ -261,7 +249,89 @@ const Navigator = () => {
     </Drawer.Navigator>
   );
 
-  
+  // const TabMainStackScreen = () => (
+  //   <BottomTab.Navigator
+  //     backBehavior="history"
+  //     initialRouteName={routes.HOME_SCREEN}
+  //     screenOptions={{
+  //       headerShown: false,
+  //       tabBarHideOnKeyboard: true,
+  //       tabBarStyle: {
+  //         backgroundColor: colors.white,
+  //       },
+  //       tabBarIconStyle: {},
+  //       tabBarAllowFontScaling: false,
+  //       tabBarShowLabel: true,
+  //       tabBarLabelStyle: {
+  //         fontSize: 0,
+  //       },
+  //       tabBarActiveTintColor: colors.twenty_one,
+  //       tabBarInactiveTintColor: colors.TWENTY_TWO,
+  //     }}>
+  //     <BottomTab.Screen
+  //       name={routes.HOME_SCREEN}
+  //       component={HOME_SCREEN}
+  //       options={{
+  //         tabBarLabel: '',
+  //         tabBarIcon: ({focused}) => (
+  //           <FastImage
+  //             source={HomeActive}
+  //             style={{height: 30, width: 30}}
+  //             resizeMode="contain"
+  //             tintColor={focused ? colors.twenty_one : colors.nine}
+  //           />
+  //         ),
+  //       }}
+  //     />
+
+  //     <BottomTab.Screen
+  //       name={routes.TRADE_SCREEN}
+  //       component={TRADE_SCREEN}
+  //       options={{
+  //         tabBarLabel: '',
+  //         tabBarIcon: ({focused}) => (
+  //           <FastImage
+  //             source={TradeInactive}
+  //             style={{height: 30, width: 30}}
+  //             resizeMode="contain"
+  //             tintColor={focused ? colors.twenty_one : colors.nine}
+  //           />
+  //         ),
+  //       }}
+  //     />
+  //     <BottomTab.Screen
+  //       name={routes.MENU_SCREEN}
+  //       component={MENU_SCREEN}
+  //       options={{
+  //         tabBarLabel: '',
+  //         tabBarIcon: ({focused}) => (
+  //           <FastImage
+  //             source={MenuInactive}
+  //             style={{height: 30, width: 30}}
+  //             resizeMode="contain"
+  //             tintColor={focused ? colors.twenty_one : colors.nine}
+  //           />
+  //         ),
+  //       }}
+  //     />
+  //     <BottomTab.Screen
+  //       name={routes.PROFILE_SCREEN}
+  //       component={Profile}
+  //       options={{
+  //         tabBarLabel: '',
+  //         tabBarIcon: ({focused}) => (
+  //           <FastImage
+  //             source={UserActive}
+  //             style={{height: 30, width: 30}}
+  //             resizeMode="contain"
+  //             tintColor={focused ? colors.twenty_one : colors.nine}
+  //           />
+  //         ),
+  //       }}
+  //     />
+  //   </BottomTab.Navigator>
+  // );
+
   return (
     <NavigationContainer
       ref={navigatorRef => {
