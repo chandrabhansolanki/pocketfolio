@@ -9,8 +9,8 @@ const ForgetPassword = ({navigation}) => {
   const onFocusHandler = () => {};
 
   const loginHandler = () => {
-    // navigation.navigate(routes.LOGIN);
-    navigation.navigate('dashboard');
+    navigation.navigate(routes.LOGIN);
+    // navigation.navigate('dashboard');
     // console.log('duhbj')
 
     // navigation.getParent('dashboard').openDrawer();

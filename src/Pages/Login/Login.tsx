@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
 
   const loginHandler = () => {
     // navigation.navigate(routes.HOME);
-    navigation.navigate('dashboard');
+    navigation.navigate(routes.HOME);
   };
 
   const forgetPasswordHandler = () => {

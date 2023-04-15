@@ -1,9 +1,11 @@
 import {View, Text} from 'react-native';
+import Header from '../../components/Header/Header';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <View>
-      <Text>Home Screen</Text>
+      <Header navigation={navigation} />
+      {/* <Text style={{backgroundColor:'red'}}>chnarasdj js lkjs ljf jlskj lj l</Text> */}
     </View>
   );
 };
