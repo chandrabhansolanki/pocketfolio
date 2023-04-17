@@ -13,6 +13,8 @@ const InputContainer = props => {
           secureTextEntry={props.securedEntry}
           placeholder={props.placeholder}
           placeholderTextColor={props.placeholderTextColor}
+          onChangeText={props.onChangeText}
+          value={props.value}
         />
         {props?.IconRequired && (
           <Image source={props.image} style={styles.mailIcon} />

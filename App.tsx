@@ -1,12 +1,16 @@
 import {View, StyleSheet} from 'react-native';
 import Navigation from './src/Routes/Navigation';
-import ProgileSideBar from './src/Pages/Profile/ProfileSideBar'
+import {Provider} from 'react-redux';
+import store from './src/store/store';
+
 const App = () => {
   return (
-    <View style={styles.mainContainer}>
-      <Navigation />
-      {/* <ProgileSideBar /> */}
-    </View>
+    <Provider store={store}>
+      <View style={styles.mainContainer}>
+        <Navigation />
+        {/* <ProgileSideBar /> */}
+      </View>
+    </Provider>
   );
 };
 

@@ -14,9 +14,17 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import SignUpButton from '../../components/SignUpButton';
 import * as routes from '../../Routes/routes';
 import LoginButton from '../../components/LoginButton';
+import {useSelector, useDispatch} from 'react-redux';
+import {setLoading, setAuthSuccess} from '../../slices/AuthServices/authSlice';
+import {log} from 'react-native-reanimated';
 
 const Login = ({navigation}) => {
   const [onFocusStatus, setOnFocusStatus] = useState(true);
+  const [emailInput, setEmailInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
+  const dispatch = useDispatch();
+  const selector = useSelector(state => state?.authReducer?.isAuth);
+  // console.log(selector);
 
   const onFocusHandler = status => {
     setOnFocusStatus(status);
@@ -35,6 +43,17 @@ const Login = ({navigation}) => {
 
   const forgetPasswordHandler = () => {
     navigation.navigate(routes.FORGETPASSWORD);
+    // dispatch(setAuthSuccess(true));
+  };
+
+  const onSubmitHandler = () => {
+    let data = {
+      emailInput: emailInput,
+      passwordInput: passwordInput,
+    };
+    console.log(data);
+
+    // dispatch(loginAction(data))
   };
 
   return (
@@ -57,6 +76,8 @@ const Login = ({navigation}) => {
           labelStatus={true}
           placeholder="Enter Your Email"
           placeholderTextColor="#555555"
+          onChangeText={text => setEmailInput(text)}
+          value={emailInput}
         />
         <InputContainer
           image={passwordIcon}
@@ -67,10 +88,12 @@ const Login = ({navigation}) => {
           labelStatus={true}
           placeholder="Enter Your Password"
           placeholderTextColor="#555555"
+          onChangeText={text => setPasswordInput(text)}
+          value={passwordInput}
         />
         <View style={styles.buttonContainer}>
           {/* <LoginButton buttonName="Login" loginHandler={loginHandler} /> */}
-          <LoginButton buttonName="Login Now" loginHandler={loginHandler} />
+          <LoginButton buttonName="Login Now" loginHandler={onSubmitHandler} />
         </View>
         <TouchableOpacity
           onPress={() => forgetPasswordHandler()}
