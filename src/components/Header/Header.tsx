@@ -18,7 +18,7 @@ const Header = ({navigation}) => {
   };
 
   return (
-    <View style={{height: 100, backgroundColor: 'pink'}}>
+    <View style={{height: 100, }}>
       <View style={styles.topNav}>
         <View style={styles.leftsidecontainer}>
           <TouchableOpacity onPress={leftSideBarHandler}>

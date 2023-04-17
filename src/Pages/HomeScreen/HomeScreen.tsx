@@ -1,12 +1,16 @@
 import {View, Text} from 'react-native';
 import Header from '../../components/Header/Header';
+import AppSafeAreaView from '../../components/statusBar/AppSafeAreaView';
+import UserPersonalInfo from '../Profile/UserPersonalInfo/UserPersonalInfo';
 
 const HomeScreen = ({navigation}) => {
   return (
-    <View>
-      <Header navigation={navigation} />
-      {/* <Text style={{backgroundColor:'red'}}>chnarasdj js lkjs ljf jlskj lj l</Text> */}
-    </View>
+    <AppSafeAreaView color="green" text='light-content'>
+      <View style={{}}>
+        <Header navigation={navigation} />
+        <UserPersonalInfo />
+      </View>
+    </AppSafeAreaView>
   );
 };
 
