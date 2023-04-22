@@ -10,79 +10,90 @@ import {
   logoutIcon,
   arrowIcon,
 } from '../../Images/Images';
-
-const data = [
-  {
-    id: 1,
-    title: 'Financial Data',
-    icon: financeDataIcon,
-    detail: 'Get your financial data',
-    arrow: arrowIcon,
-    height: 15,
-    width: 14.17,
-  },
-  {
-    id: 2,
-    title: 'Activity',
-    icon: eyeIcon,
-    detail: 'Check your latest activity',
-    arrow: arrowIcon,
-    height: 10.23,
-    width: 15,
-  },
-  {
-    id: 3,
-    title: 'News',
-    icon: InformationIcon,
-    detail: 'Find latest news',
-    arrow: arrowIcon,
-    height: 15,
-    width: 15,
-  },
-  {
-    id: 4,
-    title: 'Support',
-    icon: messageIcon,
-    detail: 'Connect with customer support',
-    arrow: arrowIcon,
-    height: 15,
-    width: 15,
-  },
-  {
-    id: 5,
-    title: 'Tutorials',
-    icon: videoIcon,
-    detail: 'Learn from videos',
-    arrow: arrowIcon,
-    height: 12,
-    width: 15,
-  },
-  {
-    id: 6,
-    title: 'Change Password',
-    icon: passwordChangeIcon,
-    detail: 'Change your password',
-    arrow: arrowIcon,
-    height: 17.03,
-    width: 15,
-  },
-  {
-    id: 7,
-    title: 'Logout',
-    icon: logoutIcon,
-    detail: 'Logout from your profile',
-    arrow: arrowIcon,
-    height: 15.4,
-    width: 14,
-  },
-];
+import {useDispatch} from 'react-redux';
+import {logout} from '../../slices/AuthServices/authSlice';
+import NavigationService from '../../Routes/NavigationService';
 
 const UserInfo = () => {
+  const dispatch = useDispatch();
+  const data = [
+    {
+      id: 1,
+      title: 'Financial Data',
+      icon: financeDataIcon,
+      detail: 'Get your financial data',
+      arrow: arrowIcon,
+      height: 15,
+      width: 14.17,
+      onPress: () => console.log('fianacila'),
+    },
+    {
+      id: 2,
+      title: 'Activity',
+      icon: eyeIcon,
+      detail: 'Check your latest activity',
+      arrow: arrowIcon,
+      height: 10.23,
+      width: 15,
+      onPress: () => console.log('activity'),
+    },
+    {
+      id: 3,
+      title: 'News',
+      icon: InformationIcon,
+      detail: 'Find latest news',
+      arrow: arrowIcon,
+      height: 15,
+      width: 15,
+      onPress: () => console.log('news'),
+    },
+    {
+      id: 4,
+      title: 'Support',
+      icon: messageIcon,
+      detail: 'Connect with customer support',
+      arrow: arrowIcon,
+      height: 15,
+      width: 15,
+      onPress: () => console.log('support'),
+    },
+    {
+      id: 5,
+      title: 'Tutorials',
+      icon: videoIcon,
+      detail: 'Learn from videos',
+      arrow: arrowIcon,
+      height: 12,
+      width: 15,
+      onPress: () => console.log('tutorials'),
+    },
+    {
+      id: 6,
+      title: 'Change Password',
+      icon: passwordChangeIcon,
+      detail: 'Change your password',
+      arrow: arrowIcon,
+      height: 17.03,
+      width: 15,
+      onPress: () => console.log('password'),
+    },
+    {
+      id: 7,
+      title: 'Logout',
+      icon: logoutIcon,
+      detail: 'Logout from your profile',
+      arrow: arrowIcon,
+      height: 15.4,
+      width: 14,
+      onPress: () => dispatch(logout()),
+    },
+  ];
+
   return (
     <View style={styles.mainContainer}>
       {data.map(item => {
         return (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => item?.onPress()}>
             <View style={styles.detail_info}>
               <View style={{width: '20%'}}>
                 <Image

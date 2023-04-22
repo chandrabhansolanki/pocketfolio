@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EEEEEE',
     borderColor: 'transparent',
     borderRadius: 8,
+    color: '#555555',
   },
   mailIcon: {
     height: 50,

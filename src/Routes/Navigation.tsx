@@ -1,5 +1,6 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import NavigationService from './NavigationService';
 import * as routes from './routes';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
@@ -9,7 +10,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import ProfileSideBar from '../Pages/Profile/ProfileSideBar';
 import Header from '../components/Header/Header';
 import HomeScreen from '../Pages/HomeScreen/HomeScreen';
-import RightSideBar from '../Pages/Profile/RightSideBar'
+import RightSideBar from '../Pages/Profile/RightSideBar';
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -19,7 +20,10 @@ const Navigation = () => {
   const LeftDrawerScreen = () => {
     return (
       <LeftDrawer.Navigator
-        screenOptions={{drawerPosition: 'left',drawerStyle: {width: '90%', backgroundColor:'#F5FAFFDE'}}}
+        screenOptions={{
+          drawerPosition: 'left',
+          drawerStyle: {width: '90%', backgroundColor: '#F5FAFFDE'},
+        }}
         drawerContent={props => <ProfileSideBar {...props} />}
         id="LeftDrawer">
         <LeftDrawer.Screen
@@ -38,8 +42,7 @@ const Navigation = () => {
         drawerPosition: 'right',
         // headerShown: false,
       }}
-      drawerContent={props => <RightSideBar {...props} />}
-      >
+      drawerContent={props => <RightSideBar {...props} />}>
       <Drawer.Screen
         name="LeftDrawer"
         component={LeftDrawerScreen}
@@ -49,7 +52,10 @@ const Navigation = () => {
   );
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      ref={navigatorRef => {
+        NavigationService.setTopLevelNavigator(navigatorRef);
+      }}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name={routes.SPLASHSCREEN} component={SplashScreen} />
         <Stack.Screen name={routes.LOGIN} component={Login} />

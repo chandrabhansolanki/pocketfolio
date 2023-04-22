@@ -15,8 +15,7 @@ import SignUpButton from '../../components/SignUpButton';
 import * as routes from '../../Routes/routes';
 import LoginButton from '../../components/LoginButton';
 import {useSelector, useDispatch} from 'react-redux';
-import {setLoading, setAuthSuccess} from '../../slices/AuthServices/authSlice';
-import {log} from 'react-native-reanimated';
+import {getProfile, userLogin} from '../../slices/AuthServices/authSlice';
 
 const Login = ({navigation}) => {
   const [onFocusStatus, setOnFocusStatus] = useState(true);
@@ -36,10 +35,10 @@ const Login = ({navigation}) => {
     navigation.navigate(routes.SIGNUP);
   };
 
-  const loginHandler = () => {
-    // navigation.navigate(routes.HOME);
-    navigation.navigate(routes.HOME);
-  };
+  // const loginHandler = () => {
+  //   // navigation.navigate(routes.HOME);
+  //   navigation.navigate(routes.HOME);
+  // };
 
   const forgetPasswordHandler = () => {
     navigation.navigate(routes.FORGETPASSWORD);
@@ -48,14 +47,16 @@ const Login = ({navigation}) => {
 
   const onSubmitHandler = () => {
     let data = {
-      emailInput: emailInput,
-      passwordInput: passwordInput,
+      email: emailInput,
+      password: passwordInput,
     };
-    console.log(data);
-
-    // dispatch(loginAction(data))
+    dispatch(userLogin(data));
+    // navigation.navigate(routes.HOME);
   };
-
+  // let callProfile = () => {
+  //   // console.log('dsojijn')
+  //   dispatch(getProfile(dispatch));
+  // };
   return (
     <KeyboardAwareScrollView>
       <View style={styles.mainContainer}>
