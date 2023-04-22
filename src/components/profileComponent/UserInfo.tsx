@@ -13,6 +13,7 @@ import {
 import {useDispatch} from 'react-redux';
 import {logout} from '../../slices/AuthServices/authSlice';
 import NavigationService from '../../Routes/NavigationService';
+import {ACTIVITY} from '../../Routes/routes';
 
 const UserInfo = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const UserInfo = () => {
       arrow: arrowIcon,
       height: 10.23,
       width: 15,
-      onPress: () => console.log('activity'),
+      onPress: () => NavigationService.navigate(ACTIVITY),
     },
     {
       id: 3,

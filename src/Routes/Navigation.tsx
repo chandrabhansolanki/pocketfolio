@@ -11,6 +11,7 @@ import ProfileSideBar from '../Pages/Profile/ProfileSideBar';
 import Header from '../components/Header/Header';
 import HomeScreen from '../Pages/HomeScreen/HomeScreen';
 import RightSideBar from '../Pages/Profile/RightSideBar';
+import Activity from '../Pages/Activity/Activity';
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -27,8 +28,13 @@ const Navigation = () => {
         drawerContent={props => <ProfileSideBar {...props} />}
         id="LeftDrawer">
         <LeftDrawer.Screen
-          name="hgf"
+          name="Home"
           component={HomeScreen}
+          options={{headerShown: false}}
+        />
+        <LeftDrawer.Screen
+          name="Activity"
+          component={Activity}
           options={{headerShown: false}}
         />
       </LeftDrawer.Navigator>

@@ -8,7 +8,7 @@ const HomeScreen = ({navigation}) => {
     <AppSafeAreaView color="green" text='light-content'>
       <View style={{}}>
         <Header navigation={navigation} />
-        <UserPersonalInfo />
+        {/* <UserPersonalInfo /> */}
       </View>
     </AppSafeAreaView>
   );
