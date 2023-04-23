@@ -1,6 +1,7 @@
 import {View, Text} from 'react-native';
 import Header from '../../components/Header/Header';
 import AppSafeAreaView from '../../components/statusBar/AppSafeAreaView';
+import Dashboard from '../Dashboard/Dashboard';
 import UserPersonalInfo from '../Profile/UserPersonalInfo/UserPersonalInfo';
 
 const HomeScreen = ({navigation}) => {
@@ -9,6 +10,7 @@ const HomeScreen = ({navigation}) => {
       <View style={{}}>
         <Header navigation={navigation} />
         {/* <UserPersonalInfo /> */}
+        {/* <Dashboard /> */}
       </View>
     </AppSafeAreaView>
   );
