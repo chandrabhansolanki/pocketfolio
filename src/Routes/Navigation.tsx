@@ -33,7 +33,7 @@ const Navigation = () => {
           options={{headerShown: false}}
         />
         <LeftDrawer.Screen
-          name="Activity"
+          name={routes.ACTIVITY}
           component={Activity}
           options={{headerShown: false}}
         />
